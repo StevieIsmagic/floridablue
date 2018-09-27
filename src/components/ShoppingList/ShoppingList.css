@@ -1,13 +1,15 @@
 .shoppingList {
-  border: 2px solid black;
   margin: 20px;
+  min-height: 300px;
 }
 
 .formContainer {
 
 }
+
 .title {
-  font-size: 2.5em;;
+  font-size: 2.5em;
+  color: #1a9cd0;
 }
 
 .input {
@@ -23,4 +25,9 @@
 .list {
   border: 1px solid black;
   margin: 10px;
+  padding: 5px;
+}
+
+.listItem {
+  
 }
