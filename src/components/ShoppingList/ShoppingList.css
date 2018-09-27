@@ -1,0 +1,25 @@
+.shoppingList {
+  height: 100vh;
+  border: 2px solid black;
+  margin: 20px;
+}
+
+.formContainer {
+
+}
+.title {
+  font-size: 2.5em;;
+}
+
+.input {
+  border: 1px solid grey;
+  margin: 5px;
+}
+
+.listContainer {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.list {
+  
+}
