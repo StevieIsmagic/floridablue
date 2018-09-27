@@ -31,7 +31,7 @@ class ShoppingList extends Component {
       }   
     }
 
-    if (array2Length > 0){
+    if (array2Length > 0) {
       for (let i = 0; i < array2.length; i++) {
         const arrayItemName = array2[i].itemName;
         if (arrayItemName === item.itemName) {
@@ -50,7 +50,7 @@ class ShoppingList extends Component {
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
-    })
+    });
   }
 
   handleSubmit = event => {
@@ -61,7 +61,7 @@ class ShoppingList extends Component {
     const { needToBuy, inMyCart} = this.state;
 
     // pass both arrays through validator f(x) to compare inputItem to arrayItem
-    this.validator(needToBuy, inMyCart, item)
+    this.validator(needToBuy, inMyCart, item);
   }
 
   addToMyCartHandler = (index, item) => {
@@ -70,9 +70,7 @@ class ShoppingList extends Component {
         .slice(0, index)
         .concat(this.state.needToBuy.slice(index + 1)),
       inMyCart: [...this.state.inMyCart, {...item, itemInCart: true}]
-    })
-
-    console.log("Added Item to Cart: ", this.state)
+    });
   }
 
   removeFromMyCartHandler = (index, item) => {
@@ -81,12 +79,8 @@ class ShoppingList extends Component {
         .slice(0, index)
         .concat(this.state.inMyCart.slice(index + 1)),
       needToBuy: [...this.state.needToBuy, {...item, itemInCart: false}]
-    })
-
-    console.log("Remove Item From Cart: ", this.state)
+    });
   }
-
-
 
   render() {
     return (
@@ -100,11 +94,9 @@ class ShoppingList extends Component {
               placeholder='Add List Item'
               value={this.state.inputItem}
               onChange={this.handleChange} 
-
             />
             <button onClick={this.handleSubmit}>Submit</button>
           </form>
-
         </div>
         <div className="listContainer">
           <div className="list">
@@ -119,28 +111,27 @@ class ShoppingList extends Component {
                     >
                     {item.itemName}
                     </div>
-                  )
+                  );
                 })
               }
           </div>
           <div className="list">
             <h1>In My Cart</h1>
               {
-              this.state.inMyCart.map((item, index) => {
-                return (
-                  <div
-                    className="listItem"
-                    key={item.itemName}
-                    onClick={() => this.removeFromMyCartHandler(index, item)}
-                  >
-                  {item.itemName}
-                  </div>
-                )
-              })
-            }
+                this.state.inMyCart.map((item, index) => {
+                  return (
+                    <div
+                      className="listItem"
+                      key={item.itemName}
+                      onClick={() => this.removeFromMyCartHandler(index, item)}
+                    >
+                    {item.itemName}
+                    </div>
+                  );
+                })
+              }
           </div>
         </div>
-        
       </div>
     )
   }
