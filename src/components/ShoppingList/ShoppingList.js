@@ -133,7 +133,7 @@ class ShoppingList extends Component {
           </div>
         </div>
       </div>
-    )
+    );
   }
 }
 
