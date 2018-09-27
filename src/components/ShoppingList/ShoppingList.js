@@ -33,6 +33,15 @@ class ShoppingList extends Component {
 
   addToMyCartHandler = (index, item) => {
     alert(`${item.itemName}, ${index} Added to cart!`)
+
+    this.setState({
+      needToBuy: this.state.needToBuy
+        .slice(0, index)
+        .concat(this.state.needToBuy.slice(index + 1)),
+      inMyCart: [...this.state.inMyCart, {...item, itemInCart: true}]
+    })
+
+    console.log("Added Item to Cart: ", this.state)
   }
 
   removeFromMyCartHandler = (index, item) => {
