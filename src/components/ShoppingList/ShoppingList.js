@@ -31,6 +31,14 @@ class ShoppingList extends Component {
     console.log('Updated State: ', this.state)
   }
 
+  addToMyCartHandler = (index, item) => {
+    alert(`${item.itemName}, ${index} Added to cart!`)
+  }
+
+  removeFromMyCartHandler = (index, item) => {
+    alert(`${item.itemName}, ${index} Removed from cart!`)
+  }
+
 
 
   render() {
@@ -55,11 +63,12 @@ class ShoppingList extends Component {
           <div className="list">
             <h1>Need To Buy</h1>
               {
-                this.state.needToBuy.map(item => {
+                this.state.needToBuy.map((item, index) => {
                   return (
                     <div
                       className="listItem"
                       key={item.itemName}
+                      onClick={() => this.addToMyCartHandler(index, item)}
                     >
                     {item.itemName}
                     </div>
@@ -70,11 +79,12 @@ class ShoppingList extends Component {
           <div className="list">
             <h1>In My Cart</h1>
               {
-              this.state.inMyCart.map(item => {
+              this.state.inMyCart.map((item, index) => {
                 return (
                   <div
                     className="listItem"
                     key={item.itemName}
+                    onClick={() => this.removeFromMyCartHandler(index, item)}
                   >
                   {item.itemName}
                   </div>
