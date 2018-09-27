@@ -12,7 +12,7 @@ class ShoppingList extends Component {
     }
   }
 
-  handleChange = (event) => {
+  handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
     })
@@ -20,7 +20,15 @@ class ShoppingList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    alert('Item Added!')
+    
+    let item = { itemName: this.state.inputItem, itemInCart: false };
+
+    this.setState({
+      needToBuy: [...this.state.needToBuy, item],
+      inputItem: ''
+    });
+
+    console.log('Updated State: ', this.state)
   }
 
 
