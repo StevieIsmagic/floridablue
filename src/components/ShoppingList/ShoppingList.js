@@ -32,8 +32,6 @@ class ShoppingList extends Component {
   }
 
   addToMyCartHandler = (index, item) => {
-    alert(`${item.itemName}, ${index} Added to cart!`)
-
     this.setState({
       needToBuy: this.state.needToBuy
         .slice(0, index)
@@ -45,7 +43,14 @@ class ShoppingList extends Component {
   }
 
   removeFromMyCartHandler = (index, item) => {
-    alert(`${item.itemName}, ${index} Removed from cart!`)
+    this.setState({
+      inMyCart: this.state.inMyCart
+        .slice(0, index)
+        .concat(this.state.inMyCart.slice(index + 1)),
+      needToBuy: [...this.state.needToBuy, {...item, itemInCart: false}]
+    })
+
+    console.log("Remove Item From Cart: ", this.state)
   }
 
 

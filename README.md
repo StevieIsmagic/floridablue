@@ -7,10 +7,10 @@ Programmatically this should take less than one hour.
 <hr>
 The App should consist of at least: 
 
-1.	Input Field
-2.	Two Lists “in my cart” and “need to buy”
-3.	Validation to ensure you don’t use the input field to add a product that is already in “need to buy” or “in my cart”
-4.	A way to move an item from “need to buy” to “in my cart” 
-5.	A way to move an item from “in my cart” back to “need to buy”
-6.  Feel free to style it as you see fit.
+- [x]	Input Field
+- [x]	Two Lists “in my cart” and “need to buy”
+-	Validation to ensure you don’t use the input field to add a product that is already in “need to buy” or “in my cart”
+- [x]	A way to move an item from “need to buy” to “in my cart” 
+-	[x] A way to move an item from “in my cart” back to “need to buy”
+-  Feel free to style it as you see fit.
 
