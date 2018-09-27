@@ -54,9 +54,33 @@ class ShoppingList extends Component {
         <div className="listContainer">
           <div className="list">
             <h1>Need To Buy</h1>
+              {
+                this.state.needToBuy.map(item => {
+                  return (
+                    <div
+                      className="listItem"
+                      key={item.itemName}
+                    >
+                    {item.itemName}
+                    </div>
+                  )
+                })
+              }
           </div>
           <div className="list">
             <h1>In My Cart</h1>
+              {
+              this.state.inMyCart.map(item => {
+                return (
+                  <div
+                    className="listItem"
+                    key={item.itemName}
+                  >
+                  {item.itemName}
+                  </div>
+                )
+              })
+            }
           </div>
         </div>
         
