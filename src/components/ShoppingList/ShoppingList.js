@@ -6,17 +6,40 @@ class ShoppingList extends Component {
     super(props);
 
     this.state = {
-
+      inputItem: "",
+      needToBuy: [],
+      inMyCart: []
     }
   }
+
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value
+    })
+  }
+
+  handleSubmit = event => {
+    event.preventDefault();
+    alert('Item Added!')
+  }
+
+
+
   render() {
     return (
       <div className="shoppingList">
         <div className="formContainer">
         <h1 className="title">Florida Blue - Shopping List</h1>
           <form>
-            <input className="input"/>
-            <button>Submit</button>
+            <input 
+              className="input"
+              name='inputItem'
+              placeholder='Add List Item'
+              value={this.state.inputItem}
+              onChange={this.handleChange} 
+
+            />
+            <button onClick={this.handleSubmit}>Submit</button>
           </form>
 
         </div>

@@ -1,5 +1,4 @@
 .shoppingList {
-  height: 100vh;
   border: 2px solid black;
   margin: 20px;
 }
@@ -18,8 +17,10 @@
 
 .listContainer {
   display: grid;
+  height: 80vh;
   grid-template-columns: 1fr 1fr;
 }
 .list {
-  
+  border: 1px solid black;
+  margin: 10px;
 }
