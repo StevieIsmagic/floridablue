@@ -12,6 +12,41 @@ class ShoppingList extends Component {
     }
   }
 
+  validator = (array1, array2, item) => {
+    const array1Length = array1.length;
+    const array2Length = array2.length;
+  
+    if (item.itemName === "") {
+      alert('You cannot enter a blank submission. Please try again.')
+    }
+
+    if (array1Length > 0) {
+      for (let i = 0; i < array1.length; i++) {
+        const arrayItemName = array1[i].itemName;
+        
+        if (arrayItemName === item.itemName) {
+          alert(`${item.itemName} is already on your 'To Buy' list.`)
+          return;
+        }
+      }   
+    }
+
+    if (array2Length > 0){
+      for (let i = 0; i < array2.length; i++) {
+        const arrayItemName = array2[i].itemName;
+        if (arrayItemName === item.itemName) {
+          alert(`${item.itemName} is already in your cart.`)
+          return;
+        }
+      }
+    }
+
+    this.setState({
+      needToBuy: [...this.state.needToBuy, item],
+      inputItem: ''
+    });
+  }
+
   handleChange = event => {
     this.setState({
       [event.target.name]: event.target.value
@@ -20,15 +55,13 @@ class ShoppingList extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    
-    let item = { itemName: this.state.inputItem, itemInCart: false };
 
-    this.setState({
-      needToBuy: [...this.state.needToBuy, item],
-      inputItem: ''
-    });
+    const itemName = this.state.inputItem.trim().toUpperCase();
+    const item = { itemName, itemInCart: false };
+    const { needToBuy, inMyCart} = this.state;
 
-    console.log('Updated State: ', this.state)
+    // pass both arrays through validator f(x) to compare inputItem to arrayItem
+    this.validator(needToBuy, inMyCart, item)
   }
 
   addToMyCartHandler = (index, item) => {
