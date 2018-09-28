@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
-import ShoppingList from './components/ShoppingList/ShoppingList';
+import React, { Component } from "react";
+import ShoppingList from "./components/ShoppingList/ShoppingList";
 
-import './App.css';
+import "./App.css";
 
 class App extends Component {
   render() {

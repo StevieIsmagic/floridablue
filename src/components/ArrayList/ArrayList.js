@@ -12,7 +12,7 @@ const ArrayList = (props) => {
               key={item.itemName}
               onClick={() => props.switchCart(index, item)}
             >
-            {item.itemName}
+              {item.itemName}
             </div>
           );
         })

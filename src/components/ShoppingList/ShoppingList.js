@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import Form from '../Form/Form';
-import NeedToBuyList from '../NeedToBuyList/NeedToBuyList';
-import InMyCartList from '../InMyCartList/InMyCartList';
+import React, { Component } from "react";
+import Form from "../Form/Form";
+import NeedToBuyList from "../NeedToBuyList/NeedToBuyList";
+import InMyCartList from "../InMyCartList/InMyCartList";
 
-import './ShoppingList.css';
+import "./ShoppingList.css";
 
 class ShoppingList extends Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class ShoppingList extends Component {
     const array2Length = array2.length;
   
     if (item.itemName === "") {
-      alert('You cannot enter a blank submission. Please try again.')
+      alert("You cannot enter a blank submission. Please try again.")
       return;
     }
 
@@ -48,7 +48,7 @@ class ShoppingList extends Component {
 
     this.setState({
       needToBuy: [...this.state.needToBuy, item],
-      inputItem: ''
+      inputItem: ""
     });
   }
 
@@ -57,7 +57,7 @@ class ShoppingList extends Component {
 
     const itemName = inputItem.trim().toUpperCase();
     const item = { itemName, itemInCart: false };
-    const { needToBuy, inMyCart} = this.state;
+    const { needToBuy, inMyCart } = this.state;
 
     // pass both arrays through validator f(x) to compare inputItem to arrayItem
     this.validator(needToBuy, inMyCart, item);
@@ -68,7 +68,7 @@ class ShoppingList extends Component {
       needToBuy: this.state.needToBuy
         .slice(0, index)
         .concat(this.state.needToBuy.slice(index + 1)),
-      inMyCart: [...this.state.inMyCart, {...item, itemInCart: true}]
+      inMyCart: [...this.state.inMyCart, { ...item, itemInCart: true }]
     });
   }
 
@@ -77,7 +77,7 @@ class ShoppingList extends Component {
       inMyCart: this.state.inMyCart
         .slice(0, index)
         .concat(this.state.inMyCart.slice(index + 1)),
-      needToBuy: [...this.state.needToBuy, {...item, itemInCart: false}]
+      needToBuy: [...this.state.needToBuy, { ...item, itemInCart: false }]
     });
   }
 

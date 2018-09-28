@@ -1,5 +1,5 @@
 import React from "react";
-import ArrayList from '../ArrayList/ArrayList';
+import ArrayList from "../ArrayList/ArrayList";
 
 import "./NeedToBuyList.css";
 
