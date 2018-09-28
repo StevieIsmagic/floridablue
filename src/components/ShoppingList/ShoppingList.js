@@ -18,6 +18,7 @@ class ShoppingList extends Component {
   
     if (item.itemName === "") {
       alert('You cannot enter a blank submission. Please try again.')
+      return;
     }
 
     if (array1Length > 0) {
