@@ -13,5 +13,5 @@ The App should consist of at least:
 - [x]	A way to move an item from “need to buy” to “in my cart” 
 -	[x] A way to move an item from “in my cart” back to “need to buy”
 - [x] Feel free to style it as you see fit.
-- [] Refactor into proper components.
+- [x] Refactor into proper components.
 

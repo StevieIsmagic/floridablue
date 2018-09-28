@@ -1,0 +1,46 @@
+.formContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  align-content: center;
+  justify-content: auto;
+}
+
+.title {
+  font-size: 2.5em;
+  color: #1a9cd0;
+}
+
+.input {
+  text-align: center;
+  height: 2em;
+  width: 50%;
+  border: 2px solid grey;
+  margin-bottom: 1em;
+}
+
+.input::placeholder {
+  background: #eee;
+  margin: 1px;
+}
+
+.button {
+  border: 2px solid grey;
+  width: 20%;
+  margin-left: 5px;
+  padding: 5px;
+}
+
+@media (max-width: 500px) {
+  .title {
+    font-size: 1.5em;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .button {
+    width: 100%;
+  }
+}
+

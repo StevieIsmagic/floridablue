@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
+import Form from '../Form/Form';
+import NeedToBuyList from '../NeedToBuyList/NeedToBuyList';
+import InMyCartList from '../InMyCartList/InMyCartList';
+
 import './ShoppingList.css';
 
 class ShoppingList extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = { 
       inputItem: "",
       needToBuy: [],
       inMyCart: []
@@ -48,23 +52,17 @@ class ShoppingList extends Component {
     });
   }
 
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  }
-
-  handleSubmit = event => {
+  handleSubmit = (inputItem, event) => {
     event.preventDefault();
 
-    const itemName = this.state.inputItem.trim().toUpperCase();
+    const itemName = inputItem.trim().toUpperCase();
     const item = { itemName, itemInCart: false };
     const { needToBuy, inMyCart} = this.state;
 
     // pass both arrays through validator f(x) to compare inputItem to arrayItem
     this.validator(needToBuy, inMyCart, item);
   }
-
+  
   addToMyCartHandler = (index, item) => {
     this.setState({
       needToBuy: this.state.needToBuy
@@ -86,52 +84,19 @@ class ShoppingList extends Component {
   render() {
     return (
       <div className="shoppingList">
-        <div className="formContainer">
-        <h1 className="title">Florida Blue Shopping List</h1>
-          <form>
-            <input 
-              className="input"
-              name="inputItem"
-              placeholder="Add List Item"
-              value={this.state.inputItem}
-              onChange={this.handleChange} 
-            />
-            <button className="button" onClick={this.handleSubmit}>Submit</button>
-          </form>
-        </div>
+        <Form
+          inputItem={this.state.inputItem}
+          handleSubmit={this.handleSubmit}
+        />
         <div className="listContainer">
-          <div className="list">
-            <h1>Need To Buy</h1>
-              {
-                this.state.needToBuy.map((item, index) => {
-                  return (
-                    <div
-                      className="listItem"
-                      key={item.itemName}
-                      onClick={() => this.addToMyCartHandler(index, item)}
-                    >
-                    {item.itemName}
-                    </div>
-                  );
-                })
-              }
-          </div>
-          <div className="list">
-            <h1>In My Cart</h1>
-              {
-                this.state.inMyCart.map((item, index) => {
-                  return (
-                    <div
-                      className="listItem"
-                      key={item.itemName}
-                      onClick={() => this.removeFromMyCartHandler(index, item)}
-                    >
-                    {item.itemName}
-                    </div>
-                  );
-                })
-              }
-          </div>
+          <NeedToBuyList 
+            needToBuyArray={this.state.needToBuy}
+            addToCart={this.addToMyCartHandler}
+          />
+          <InMyCartList 
+            inMyCartArray={this.state.inMyCart}
+            removeFromCart={this.removeFromMyCartHandler}
+          />  
         </div>
       </div>
     );
