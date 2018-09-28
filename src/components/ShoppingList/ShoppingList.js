@@ -86,16 +86,16 @@ class ShoppingList extends Component {
     return (
       <div className="shoppingList">
         <div className="formContainer">
-        <h1 className="title">Florida Blue - Shopping List</h1>
+        <h1 className="title">Florida Blue Shopping List</h1>
           <form>
             <input 
               className="input"
-              name='inputItem'
-              placeholder='Add List Item'
+              name="inputItem"
+              placeholder="Add List Item"
               value={this.state.inputItem}
               onChange={this.handleChange} 
             />
-            <button onClick={this.handleSubmit}>Submit</button>
+            <button className="button" onClick={this.handleSubmit}>Submit</button>
           </form>
         </div>
         <div className="listContainer">
